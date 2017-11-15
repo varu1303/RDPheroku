@@ -1,0 +1,10 @@
+<h1>ORDER for {{order.user.userName}}</h1>
+
+
+
+        <div class="alert alert-success" ng-show="order.auth">
+            <strong>CAN SHOW ALL ORDERS!</strong>
+        </div>
+        <div class="alert alert-warning" ng-show="!order.auth">
+            <strong>YOUR TOKEN NEED TO PASS THE TEST FOR ORDERS TO SHOW UP</strong>
+        </div>

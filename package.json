@@ -1,0 +1,19 @@
+{
+  "name": "rdpfinal",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Varun",
+  "license": "ISC",
+  "description": "",
+    "engines" : { "node" : ">=8.4.0" },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^4.13.2"
+  }
+}

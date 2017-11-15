@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Hi {{pro.userProfile.userName}}!</h1> 
+    <p>Manage your RDP status here</p>
+    <button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myRDP">ADD A NEW RDP!</button>
+</div>
+    
+<!-- Modal -->
+<div id="myRDP" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <form class="modal-form" ng-submit="pro.newRDP()">
+          <div class="form-group">
+            <label for="email">RDP</label>
+            <input type="text" class="form-control" id="email" ng-model="pro.RDPname">
+          </div>
+          <div style="text-align: center;">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+    </div>
+
+  </div>
+</div>
+
+<div>
+    <h1>CURRENT STATUS</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">RDP</th>
+          <th scope="col">STATUS</th>
+          <th scope="col">SCHEDULED/APPEARED ON</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="rdp in pro.allRDP">
+          <th scope="row">{{rdp.name}}</th>
+          <td><select name="singleSelect" ng-model="rdp.status" class="selectpicker" ng-change="pro.savechange=true">
+                      <option value="Enrolled">Enrolled</option>
+                      <option value="Result Pending">Result Pending</option>
+                      <option value="Complete">Complete</option>
+                      <option value="Pending">Pending</option>
+                    </select>
+            </td>
+          <td><input type="text" ng-model="rdp.date" ng-change="pro.savechange=true"></td>
+        </tr>
+       </tbody>
+    </table>
+    <div style="text-align: center; padding: 8px">
+        <button class="btn btn-primary" ng-if="pro.savechange" ng-click="pro.resaveRDP()">SAVE CHANGES</button>
+    </div>
+</div>
