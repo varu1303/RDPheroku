@@ -131,6 +131,33 @@ router.patch('/RDP',function(req,res){
     
 });
 
+router.get('/allorders',function(req,res){
+    var authorization = req.get('authorization');
+    var token = authorization.split('Bearer ')[1];
+
+    jwt.verify(token, 'secret', function(err, decoded) {
+  // err
+        if(err){
+            res.status(401).send(err);
+        } else {
+            var x = [];
+            user.find({})
+                .then(function(d){
+                    d.forEach(function(val){
+                            console.log(val.RDP.length);
+                            x.push({name: val.userName, count: val.RDP.length});
+                    });
+                res.send(x);
+            })
+                .catch(function(e){
+                    res.status(500).send(e);
+            });
+        }
+  
+    });
+
+});
+
 
 
 

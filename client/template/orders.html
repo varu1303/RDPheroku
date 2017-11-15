@@ -1,10 +1,7 @@
-<h1>ORDER for {{order.user.userName}}</h1>
-
-
-
-        <div class="alert alert-success" ng-show="order.auth">
-            <strong>CAN SHOW ALL ORDERS!</strong>
+<div class="container">
+    <div class="row">
+        <div col-xs-12>
+            <p ng-repeat="o in order.arr">{{o.name}} has total {{o.count}} Mandatory RDP!</p>
         </div>
-        <div class="alert alert-warning" ng-show="!order.auth">
-            <strong>YOUR TOKEN NEED TO PASS THE TEST FOR ORDERS TO SHOW UP</strong>
-        </div>
+    </div>
+</div>
